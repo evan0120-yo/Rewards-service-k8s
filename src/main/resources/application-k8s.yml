@@ -1,0 +1,25 @@
+spring:
+  config:
+    activate:
+      on-profile: k8s
+  cloud:
+    kubernetes:
+      discovery:
+        enabled: true
+      config:
+        enabled: true
+        name: rewards-service
+
+  datasource:
+    # Points to K8s Service name (mysql-endpoint.yaml)
+    url: jdbc:mysql://db-host:3306/rewards_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    # Secrets injected by K8s
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+
+management:
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
