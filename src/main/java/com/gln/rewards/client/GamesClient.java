@@ -4,7 +4,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- * FeignClient for calling games-service.
+ * FeignClient for calling games-service .
  * Uses service discovery via Kubernetes - no hardcoded URLs needed.
  */
 @FeignClient(name = "games-service")
